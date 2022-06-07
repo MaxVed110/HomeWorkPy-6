@@ -13,6 +13,7 @@ def readFile(fileName):
     data = open(fileName, 'r')
     for line in data:
         dataList = [i for i in line]
+    data.close
     print(dataList)
     return dataList
 
