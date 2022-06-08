@@ -11,8 +11,17 @@ from os import remove
 
 def readFile(fileName):
     data = open(fileName, 'r')
+    char = ''
+    dataList = []
     for line in data:
-        dataList = [i for i in line]
+        for item in line:
+            if item.isnumeric():
+                char += item
+            else:
+                dataList.append(char)
+                dataList.append(item)
+                char = ''
+        dataList.append(char)
     data.close
     print(dataList)
     return dataList
